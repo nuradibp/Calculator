@@ -40,3 +40,33 @@ const inputOperator = (operator) => {
   calculationOperator = operator;
   currentNumber = "";
 };
+
+const equalSign = document.querySelector(".equal-sign");
+
+equalSign.addEventListener("click", () => {
+  calculate();
+  //console.log("equal button is pressed");
+  updateScreen(currentNumber);
+});
+
+const calculate = () => {
+  let result = "";
+  switch (calculationOperator) {
+    case "+":
+      result = parseInt(prevNumber) + parseInt(currentNumber);
+      break;
+    case "-":
+      result = prevNumber - currentNumber;
+      break;
+    case "*":
+      result = prevNumber * currentNumber;
+      break;
+    case "/":
+      result = prevNumber / currentNumber;
+      break;
+    default:
+      break;
+  }
+  currentNumber = result;
+  calculationOperator = "";
+};
